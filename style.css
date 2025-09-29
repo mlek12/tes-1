@@ -17,6 +17,7 @@ body {
     font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
+    overflow-x: hidden;  /* Cegah horizontal scroll di mobile */
 }
 
 /* HERO split */
@@ -47,6 +48,8 @@ body {
     filter: grayscale(6%) contrast(1.04);
     transition: transform .2s, box-shadow .2s;
     cursor: pointer;
+    display: block;
+    margin: 0 auto;  /* Center gambar di mobile */
 }
 
 .split-img:hover {
@@ -81,6 +84,7 @@ body {
     hyphens: auto;
     line-height: 1.78;
     margin-bottom: 1rem;
+    word-break: break-word;  /* Cegah kata panjang overflow di mobile */
 }
 
 .story-card h5 {
@@ -105,6 +109,8 @@ body {
     max-width: 520px;
     border-radius: .75rem;
     box-shadow: 0 8px 22px rgba(0, 0, 0, .12);
+    width: 100%;  /* Full width di container */
+    height: auto;
 }
 
 footer {
@@ -123,12 +129,85 @@ footer a:hover {
     text-decoration: underline;
 }
 
-@media (max-width: 576px) {
+/* Media Queries untuk Mobile dan Tablet */
+@media (max-width: 768px) {  /* Tablet & Mobile */
     .hero {
-        padding: 3.25rem 0;
+        padding: 3rem 0;  /* Kurangi padding hero */
+    }
+    
+    .eyebrow {
+        font-size: .75rem;
+        padding: .25rem .5rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;  /* Kurangi ukuran judul di mobile */
+    }
+    
+    .hero .lead {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .hero .btn-lg {
+        padding: .5rem 1rem;
+        font-size: .95rem;
+    }
+    
+    .split-img {
+        width: min(300px, 80%);  /* Gambar hero lebih kecil di mobile */
+        aspect-ratio: 1/1.1;  /* Sedikit lebih lebar agar gak terlalu tinggi */
+        margin-top: 1rem;  /* Spacing di bawah text */
     }
     
     .story-card {
         padding: 1.25rem;
+        margin-bottom: 1.5rem;  /* Tambah spacing antar card */
+    }
+    
+    .story-card p {
+        font-size: .95rem;  /* Text lebih readable di mobile */
+        line-height: 1.6;
+    }
+    
+    .figure-card img {
+        max-width: 100%;  /* Pastikan gambar foto 2 fit mobile */
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .row.g-4 {
+        gap: 1.5rem;  /* Kurangi gap di pelajaran section */
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        margin: 2rem 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {  /* Hanya Mobile Kecil */
+    .hero {
+        padding: 2.5rem 0;  /* Lebih compact lagi */
+    }
+    
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;  /* Hindari edge clipping */
+    }
+    
+    .split-img {
+        width: 85vw;  /* Hampir full width tapi aman */
+        max-width: 280px;
+    }
+    
+    .story-card {
+        padding: 1rem;
+        border-radius: .75rem;  /* Radius lebih kecil */
+    }
+    
+    footer {
+        padding: 1.5rem 1rem;
+        font-size: .9rem;
     }
 }
