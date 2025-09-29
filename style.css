@@ -1,0 +1,134 @@
+:root {
+    --brand: #153828;
+    --brand-2: #20c997;
+    --ink: #0f172a;
+    --text: #334155;
+    --card: #ffffff;
+    --bg: #f8f9fa;
+    --ring: rgba(255, 255, 255, .98);
+    --shadow: rgba(0, 0, 0, .18);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* HERO split */
+.hero {
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    color: #fff;
+    padding: 4.5rem 0;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: .85rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, .18);
+    padding: .35rem .6rem;
+    border-radius: 999px;
+    margin-bottom: .75rem;
+}
+
+.split-img {
+    width: min(420px, 90%);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px var(--ring), 0 18px 42px rgba(0, 0, 0, .22);
+    filter: grayscale(6%) contrast(1.04);
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer;
+}
+
+.split-img:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 0 0 8px var(--ring), 0 22px 50px rgba(0, 0, 0, .26);
+}
+
+.section-title {
+    text-align: center;
+    color: var(--brand);
+    font-weight: 700;
+    margin: 1.25rem 0;
+}
+
+.story-card {
+    background: var(--card);
+    border-radius: 1rem;
+    padding: 1.6rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+    transition: transform .25s, box-shadow .25s;
+    margin-bottom: 1rem;
+}
+
+.story-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .12);
+}
+
+.story-card p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    line-height: 1.78;
+    margin-bottom: 1rem;
+}
+
+.story-card h5 {
+    position: relative;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+.story-card h5::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 3px;
+    background: var(--brand);
+    border-radius: 2px;
+    margin-top: .35rem;
+    opacity: .9;
+}
+
+.figure-card img {
+    max-width: 520px;
+    border-radius: .75rem;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .12);
+}
+
+footer {
+    background: #212529;
+    color: #adb5bd;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+footer a {
+    color: #20c997;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 3.25rem 0;
+    }
+    
+    .story-card {
+        padding: 1.25rem;
+    }
+}
